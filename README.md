@@ -21,7 +21,6 @@ Card CRUD App is a simple Angular application with Firebase integration that all
     git clone https://github.com/SM-Company/card-crud.git
     cd card-crud
     npm install
-    ng serve
     ```
 
 2. **Configuration:**
