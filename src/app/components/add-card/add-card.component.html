@@ -1,0 +1,73 @@
+<div class="container py-4">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card text-center border-0" style="min-height: 100vh;">
+        <img src="../../../assets/add-card/cardImg.png" alt="Card"
+          class="position-absolute top-0 mb-0 start-50 translate-middle-x" width="60%" style="z-index: 2;">
+        <div class="card text-center" style="margin-top: 160px; padding-top: 50px;">
+          <div class="card-body">
+            <h3>
+            </h3>
+            <form class="mt-4" [formGroup]="cardForm" (ngSubmit)="onSave()" (input)="onInput()">
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="d-flex flex-col">
+                    <label for="name" class="form-label text-start fw-bold">N&uacute;mero de Tarjeta</label>
+                  </div>
+                  <input type="number" class="form-control" formControlName="card_number" id="card_number"
+                    pattern="[0-9]*" maxlength="16"
+                    oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+
+                  <div *ngIf="cardForm.get('card_number')?.hasError('pattern')">
+                    <p class="text-danger position-absolute" style="font-size: .8em;">Solo se permiten números.</p>
+                  </div>
+                  <div *ngIf="cardForm.get('card_number')?.hasError('maxlength')">
+                    <p class="text-danger position-absolute" style="font-size: .8em;"> Máximo 16 caracteres permitidos.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="d-flex flex-col">
+                    <label for="name" class="form-label text-start fw-bold">Fecha Vencimiento </label>
+                  </div>
+                  <input class="form-control" formControlName="expiration_date" id="expiration_date"
+                    placeholder="mm/yy">
+                  <div *ngIf="cardForm.get('expiration_date')?.hasError('pattern') && isExpirationDateFocused">
+                    <p class="text-danger position-absolute" style="font-size: .8em;">Formato requerido mm/yy.</p>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <div class="d-flex flex-col">
+                    <label for="name" class="form-label text-start fw-bold">Nombre Titular </label>
+                  </div>
+                  <input type="text" class="form-control" formControlName="owner_name" id="owner_name" maxlength="20"
+                    oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                  <div *ngIf="cardForm.get('owner_name')?.hasError('pattern') && isExpirationDateFocused">
+                    <p class="text-danger position-absolute" style="font-size: .8em;">Caracter no permitido</p>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <div class="d-flex flex-col">
+                    <label for="name" class="form-label text-start fw-bold">CVV </label>
+                  </div>
+                  <input type="number" class="form-control" placeholder="***" formControlName="cvv" id="cvv"
+                    maxlength="3"
+                    oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                </div>
+              </div>
+              <div class="d-flex justify-content-start gap-2 mt-3 d-flex align-items-center">
+                <button  type="submit" class="d-flex justify-content-center align-items-center gap-2 btn btn-sm btn-primary rounded-pill" [disabled]="isSending">Guardar
+                  <span *ngIf="isSending" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                </button>
+                <button routerLink="/cards" class="btn btn-sm  btn-secondary rounded-pill">Cancelar</button>
+                <div *ngIf="isAnyFieldNotSet && submitter" class="d-flex align-items-center" style="height: 10px;">
+                  <p class="text-danger mb-0 pl-5" style="font-size: .8em;">Todos los campos son requeridos</p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
