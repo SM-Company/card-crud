@@ -1,27 +1,38 @@
-# Card CRUD
+# Card CRUD App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+## Overview
 
-## Development server
+Card CRUD App is a simple Angular application with Firebase integration that allows users to perform CRUD operations on card data. Easily create, read, update, and delete card information through a user-friendly interface.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- **Create:** Add new cards to the system with card number, expiration date, owner's name, and CVV.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Read:** View the list of existing cards and their details.
 
-## Build
+- **Update:** Modify card information through an easy-to-use editing interface.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Delete:** Remove unwanted cards from the system with a simple deletion process.
 
-## Running unit tests
+## Usage
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. **Installation:**
+    ```bash
+    git clone <REPO_URL>
+    cd card-crud-app
+    npm install
+    ng serve
+    ```
 
-## Running end-to-end tests
+2. **Configuration:**
+   Set up Firebase credentials for the application.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. **Run Locally:**
+    ```bash
+    ng serve
+    ```
+    Access the app at `http://localhost:4200/`.
 
-## Further help
+## Demo
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Explore the online demo: https://sm-card-crud.netlify.app
