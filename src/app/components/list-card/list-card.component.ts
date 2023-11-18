@@ -32,7 +32,7 @@ export class ListCardComponent implements OnInit {
     this.cardService.deleteCard(id)
   }
 
-  getMaskedCardNumber(cardNumber: number) {
+  getMaskedCardNumber(cardNumber: number) { 
     return cardNumber.toString().slice(0, 2) + '**********' + cardNumber.toString().slice(-4);
   }
 }
