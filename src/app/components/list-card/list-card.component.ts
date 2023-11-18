@@ -33,6 +33,6 @@ export class ListCardComponent implements OnInit {
   }
 
   getMaskedCardNumber(cardNumber: number) {
-    return cardNumber.toString().slice(0-2) + '**********' + cardNumber.toString().slice(12-16);
+    return cardNumber.toString().slice(0, 2) + '**********' + cardNumber.toString().slice(-4);
   }
 }

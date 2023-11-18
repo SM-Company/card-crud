@@ -38,6 +38,7 @@ export class AddCardComponent implements OnInit {
     this.submitter = true;
     this.isSending = true;
     if (this.cardForm.invalid) {
+      this.isSending = false;
       return;
     }
     const card: Card = { ...this.cardForm.value };
@@ -64,6 +65,7 @@ export class AddCardComponent implements OnInit {
     this.submitter = true;
     this.isSending = true;
     if (this.cardForm.invalid || this.id == null) {
+      this.isSending = false;
       return;
     }
     const card: Card = { ...this.cardForm.value };
